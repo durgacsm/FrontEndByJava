@@ -1,0 +1,3562 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Wanderly Premium — Luxury travel experiences and unforgettable journeys.">
+
+<title>Wanderly — Premium Travel Agency</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #071313;
+    --bg-soft: #0c1b1b;
+    --card: rgba(255,255,255,.065);
+    --card-strong: rgba(255,255,255,.10);
+    --border: rgba(255,255,255,.12);
+
+    --text: #f4f8f7;
+    --muted: #91a5a3;
+
+    --green: #23d6a1;
+    --green-dark: #0da77c;
+    --gold: #e8b86a;
+
+    --shadow:
+        0 25px 70px rgba(0,0,0,.38);
+
+    --radius: 22px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(35,214,161,.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(232,184,106,.08),
+            transparent 25%
+        ),
+        var(--bg);
+
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+/* =========================================================
+   UTILITIES
+========================================================= */
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.glass {
+    background: var(--card);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.section {
+    padding: 110px 0;
+}
+
+.section-head {
+    max-width: 700px;
+    margin-bottom: 45px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 13px;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--green);
+}
+
+.section-head h2 {
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+    margin-bottom: 16px;
+}
+
+.section-head p {
+    color: var(--muted);
+    max-width: 600px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: .35s;
+}
+
+header.scrolled {
+    background: rgba(7,19,19,.78);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.navbar {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo-mark {
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+
+    color: #061411;
+    background: linear-gradient(
+        135deg,
+        var(--green),
+        #8af1d0
+    );
+
+    box-shadow:
+        0 0 30px rgba(35,214,161,.25);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #c1cfcd;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .25s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-cta {
+    padding: 11px 18px;
+    border-radius: 50px;
+    background: rgba(35,214,161,.13);
+    border: 1px solid rgba(35,214,161,.3);
+    color: var(--green) !important;
+}
+
+.mobile-menu {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 27px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 900px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3,12,12,.92) 0%,
+            rgba(3,12,12,.65) 43%,
+            rgba(3,12,12,.18) 100%
+        ),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 70%,
+            var(--bg) 100%
+        );
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    padding-top: 70px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 14px;
+    margin-bottom: 25px;
+
+    border-radius: 50px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    backdrop-filter: blur(12px);
+
+    color: #d8e7e4;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.live-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 14px var(--green);
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 94px);
+    line-height: .95;
+    letter-spacing: -5px;
+    margin-bottom: 28px;
+}
+
+.hero h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            var(--green),
+            #9cf3d8
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-description {
+    max-width: 620px;
+    color: #b8c7c5;
+    font-size: 17px;
+    margin-bottom: 32px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+
+    padding: 14px 22px;
+    border-radius: 12px;
+
+    font-weight: 800;
+    font-size: 14px;
+
+    transition:
+        transform .25s,
+        box-shadow .25s,
+        background .25s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    color: #04120f;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--green),
+            #8af1d0
+        );
+
+    box-shadow:
+        0 12px 35px rgba(35,214,161,.2);
+}
+
+.btn-primary:hover {
+    box-shadow:
+        0 18px 45px rgba(35,214,161,.32);
+}
+
+.btn-glass {
+    color: white;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.17);
+    backdrop-filter: blur(12px);
+}
+
+/* floating stats */
+
+.hero-stats {
+    position: absolute;
+    z-index: 3;
+    right: 6%;
+    bottom: 120px;
+
+    display: flex;
+    gap: 10px;
+}
+
+.stat-card {
+    min-width: 125px;
+    padding: 16px;
+
+    border-radius: 16px;
+
+    background: rgba(7,19,19,.48);
+    border: 1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(18px);
+}
+
+.stat-number {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.stat-label {
+    color: #91a5a3;
+    font-size: 11px;
+}
+
+/* =========================================================
+   SEARCH DASHBOARD
+========================================================= */
+
+.search-wrapper {
+    position: relative;
+    z-index: 20;
+    margin-top: -80px;
+}
+
+.search-dashboard {
+    padding: 22px;
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.105),
+            rgba(255,255,255,.045)
+        );
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    backdrop-filter: blur(25px);
+    box-shadow: var(--shadow);
+}
+
+.search-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+.search-title h3 {
+    font-size: 15px;
+}
+
+.search-title span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.search-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
+    gap: 10px;
+}
+
+.search-field {
+    min-height: 62px;
+    padding: 9px 14px;
+
+    border-radius: 13px;
+
+    background: rgba(0,0,0,.18);
+    border: 1px solid rgba(255,255,255,.09);
+}
+
+.search-field label {
+    display: block;
+    color: #718482;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.search-field input,
+.search-field select {
+    width: 100%;
+    margin-top: 5px;
+
+    border: 0;
+    outline: 0;
+
+    color: white;
+    background: transparent;
+
+    font-size: 13px;
+}
+
+.search-field select option {
+    color: #111;
+}
+
+.search-button {
+    border: 0;
+    border-radius: 13px;
+    padding: 0 23px;
+
+    background: var(--green);
+    color: #061411;
+
+    font-weight: 900;
+
+    transition: .25s;
+}
+
+.search-button:hover {
+    background: #75ebc6;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   DESTINATIONS
+========================================================= */
+
+.destination-section {
+    padding-top: 120px;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 9px 15px;
+    border-radius: 50px;
+
+    background: transparent;
+    border: 1px solid var(--border);
+
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: .25s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    color: #061411;
+    background: var(--green);
+    border-color: var(--green);
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.destination-card {
+    height: 430px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+
+    border: 1px solid var(--border);
+
+    cursor: pointer;
+
+    transition:
+        transform .4s,
+        border-color .4s;
+}
+
+.destination-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(35,214,161,.45);
+}
+
+.destination-card img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s;
+}
+
+.destination-card:hover img {
+    transform: scale(1.08);
+}
+
+.destination-gradient {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(0,0,0,.88) 100%
+        );
+}
+
+.destination-info {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 18px;
+}
+
+.destination-country {
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.destination-info h3 {
+    font-size: 25px;
+    margin: 4px 0;
+}
+
+.destination-info p {
+    color: #bac6c4;
+    font-size: 12px;
+}
+
+.destination-price {
+    position: absolute;
+    right: 20px;
+    bottom: 22px;
+
+    padding: 7px 10px;
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.13);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   EXPERIENCE STRIP
+========================================================= */
+
+.experience {
+    margin-top: 80px;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.experience-card {
+    padding: 25px;
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
+    border: 1px solid var(--border);
+}
+
+.experience-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background: rgba(35,214,161,.1);
+    color: var(--green);
+
+    font-size: 22px;
+
+    margin-bottom: 17px;
+}
+
+.experience-card h3 {
+    margin-bottom: 7px;
+}
+
+.experience-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* =========================================================
+   FEATURED JOURNEYS
+========================================================= */
+
+.journeys {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(35,214,161,.08),
+            transparent 30%
+        );
+}
+
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.journey-card {
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: .35s;
+}
+
+.journey-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.journey-image {
+    height: 240px;
+    position: relative;
+}
+
+.journey-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.journey-tag {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+
+    padding: 6px 10px;
+    border-radius: 50px;
+
+    color: white;
+    background: rgba(0,0,0,.45);
+    border: 1px solid rgba(255,255,255,.15);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.journey-price {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+
+    background: white;
+    color: #10201d;
+
+    padding: 7px 10px;
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.journey-body {
+    padding: 20px;
+}
+
+.journey-body h3 {
+    margin-bottom: 5px;
+}
+
+.journey-body p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.journey-meta {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 15px;
+    margin-top: 15px;
+
+    border-top: 1px solid var(--border);
+
+    color: #91a5a3;
+    font-size: 11px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-image {
+    height: 570px;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+}
+
+.about-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-floating {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+
+    padding: 18px 20px;
+    border-radius: 16px;
+
+    background: rgba(5,17,16,.70);
+    border: 1px solid rgba(255,255,255,.15);
+    backdrop-filter: blur(15px);
+}
+
+.about-floating strong {
+    display: block;
+    font-size: 25px;
+}
+
+.about-floating span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.about-copy h2 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1;
+    letter-spacing: -2.5px;
+    margin-bottom: 22px;
+}
+
+.about-copy > p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.check-list {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #dce6e4;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.check-item span {
+    width: 24px;
+    height: 24px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(35,214,161,.13);
+    color: var(--green);
+
+    font-size: 12px;
+}
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 16px;
+}
+
+.testimonial {
+    padding: 27px;
+    border-radius: var(--radius);
+    background: var(--card);
+    border: 1px solid var(--border);
+}
+
+.stars {
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.testimonial > p {
+    color: #b9c6c4;
+    font-size: 14px;
+    margin-bottom: 23px;
+}
+
+.person {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.person strong {
+    display: block;
+    font-size: 13px;
+}
+
+.person small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+    padding: 80px 0 110px;
+}
+
+.cta-box {
+    position: relative;
+    overflow: hidden;
+
+    padding: 75px 30px;
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(7,40,35,.94),
+            rgba(14,88,69,.72)
+        ),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+
+    border: 1px solid rgba(255,255,255,.14);
+}
+
+.cta-box h2 {
+    font-size: clamp(35px,5vw,60px);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    color: #c1d5d0;
+    max-width: 600px;
+    margin: auto auto 25px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 70px 0 25px;
+    background: #040d0d;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 55px;
+}
+
+.footer-about {
+    max-width: 320px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+footer h4 {
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+footer ul {
+    list-style: none;
+    display: grid;
+    gap: 9px;
+}
+
+footer li,
+footer li a {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+footer li a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #667b79;
+    font-size: 11px;
+}
+
+/* =========================================================
+   BOOKING MODAL / DASHBOARD
+========================================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: none;
+    place-items: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.72);
+    backdrop-filter: blur(12px);
+}
+
+.modal.active {
+    display: grid;
+}
+
+.booking-dashboard {
+    width: min(950px,100%);
+    max-height: 92vh;
+    overflow: auto;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #102020,
+            #071313
+        );
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.65);
+
+    animation: modalIn .35s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.booking-top {
+    padding: 24px 27px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.booking-top h2 {
+    font-size: 20px;
+}
+
+.booking-top p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.close-modal {
+    width: 37px;
+    height: 37px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.06);
+    color: white;
+
+    font-size: 20px;
+}
+
+.booking-body {
+    display: grid;
+    grid-template-columns: 1fr .7fr;
+}
+
+.booking-form {
+    padding: 27px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+
+    color: #8fa4a1;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 47px;
+
+    border-radius: 10px;
+
+    outline: 0;
+
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(0,0,0,.2);
+
+    color: white;
+    padding: 0 13px;
+}
+
+.form-group select option {
+    color: #111;
+}
+
+.booking-summary {
+    padding: 27px;
+
+    border-left: 1px solid var(--border);
+    background: rgba(255,255,255,.025);
+}
+
+.booking-summary h3 {
+    margin-bottom: 17px;
+}
+
+.summary-image {
+    height: 150px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 17px;
+}
+
+.summary-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.07);
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.summary-row strong {
+    color: white;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 18px;
+
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.total strong {
+    color: var(--green);
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 3000;
+
+    max-width: 350px;
+
+    padding: 15px 18px;
+
+    border-radius: 13px;
+
+    background: rgba(12,30,29,.94);
+    border: 1px solid rgba(35,214,161,.3);
+
+    box-shadow: var(--shadow);
+
+    transform: translateY(120px);
+    opacity: 0;
+
+    transition: .35s;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast strong {
+    display: block;
+    font-size: 13px;
+}
+
+.toast span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px) {
+
+    .destination-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .search-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .search-button {
+        min-height: 55px;
+    }
+
+    .journey-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        height: 450px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .booking-body {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-summary {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+    }
+}
+
+@media(max-width:700px) {
+
+    .navbar {
+        height: 70px;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+        padding: 15px 5%;
+
+        background: rgba(5,15,15,.97);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 0;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .hero {
+        min-height: 780px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .hero-stats {
+        position: relative;
+        right: auto;
+        bottom: auto;
+
+        margin-top: 40px;
+    }
+
+    .stat-card {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .search-wrapper {
+        margin-top: -50px;
+    }
+
+    .search-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-grid,
+    .journey-grid,
+    .testimonial-grid,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-card {
+        height: 360px;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-form,
+    .booking-summary {
+        padding: 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header id="header">
+
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+            <span class="logo-mark">✦</span>
+            Wanderly
+        </a>
+
+        <button class="mobile-menu" id="mobileMenu">
+            ☰
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#journeys">Journeys</a>
+            <a href="#about">About</a>
+
+            <a href="#booking"
+               class="nav-cta"
+               onclick="openBooking(event)">
+                Plan a Trip
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content reveal">
+
+            <div class="hero-badge">
+                <span class="live-dot"></span>
+                Curated journeys for curious souls
+            </div>
+
+            <h1>
+                Travel beyond
+                <span>ordinary.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover hidden places, extraordinary stays and meaningful
+                experiences — thoughtfully designed for travelers who want
+                more than a vacation.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#destinations"
+                   class="btn btn-primary">
+                    Explore destinations
+                    →
+                </a>
+
+                <button
+                    class="btn btn-glass"
+                    onclick="openBooking(event)">
+                    Build my journey
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-stats reveal">
+
+            <div class="stat-card">
+                <div class="stat-number counter"
+                     data-target="120">
+                    0
+                </div>
+                <div class="stat-label">
+                    Destinations
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number counter"
+                     data-target="48">
+                    0
+                </div>
+                <div class="stat-label">
+                    Countries
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number counter"
+                     data-target="18">
+                    0
+                </div>
+                <div class="stat-label">
+                    Awards
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SEARCH DASHBOARD
+===================================================== -->
+
+<div class="search-wrapper">
+
+    <div class="container">
+
+        <form
+            class="search-dashboard"
+            id="tripSearch">
+
+            <div class="search-title">
+                <h3>Find your next escape</h3>
+                <span>Smart trip search</span>
+            </div>
+
+            <div class="search-grid">
+
+                <div class="search-field">
+
+                    <label>Destination</label>
+
+                    <input
+                        id="searchDestination"
+                        type="text"
+                        placeholder="Where do you want to go?">
+
+                </div>
+
+
+                <div class="search-field">
+
+                    <label>Travel style</label>
+
+                    <select id="searchCategory">
+
+                        <option value="all">
+                            Any experience
+                        </option>
+
+                        <option value="beach">
+                            Beach
+                        </option>
+
+                        <option value="adventure">
+                            Adventure
+                        </option>
+
+                        <option value="city">
+                            City
+                        </option>
+
+                        <option value="nature">
+                            Nature
+                        </option>
+
+                        <option value="luxury">
+                            Luxury
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="search-field">
+
+                    <label>Travelers</label>
+
+                    <input
+                        id="searchTravelers"
+                        type="number"
+                        min="1"
+                        value="2">
+
+                </div>
+
+
+                <div class="search-field">
+
+                    <label>Month</label>
+
+                    <select>
+
+                        <option>Any month</option>
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    class="search-button"
+                    type="submit">
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DESTINATIONS
+===================================================== -->
+
+<section
+    class="section destination-section"
+    id="destinations">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div class="eyebrow">
+                Explore the world
+            </div>
+
+            <h2>
+                Places that stay
+                with you.
+            </h2>
+
+            <p>
+                From tropical hideaways to iconic cities, discover
+                destinations selected for unforgettable experiences.
+            </p>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filter-bar reveal">
+
+            <button
+                class="filter-btn active"
+                data-filter="all">
+                All
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="beach">
+                Beach
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="adventure">
+                Adventure
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="city">
+                City
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="nature">
+                Nature
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="luxury">
+                Luxury
+            </button>
+
+        </div>
+
+
+        <div class="destination-grid" id="destinationGrid">
+
+
+            <!-- Bali -->
+
+            <article
+                class="destination-card reveal"
+                data-category="beach luxury"
+                data-name="Bali">
+
+                <img
+                    src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1000&q=85"
+                    alt="Bali">
+
+                <div class="destination-gradient"></div>
+
+                <div class="destination-info">
+
+                    <div class="destination-country">
+                        Indonesia
+                    </div>
+
+                    <h3>Bali</h3>
+
+                    <p>
+                        Islands · Wellness · Beaches
+                    </p>
+
+                </div>
+
+                <div class="destination-price">
+                    From $899
+                </div>
+
+            </article>
+
+
+            <!-- Paris -->
+
+            <article
+                class="destination-card reveal"
+                data-category="city luxury"
+                data-name="Paris">
+
+                <img
+                    src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=85"
+                    alt="Paris">
+
+                <div class="destination-gradient"></div>
+
+                <div class="destination-info">
+
+                    <div class="destination-country">
+                        France
+                    </div>
+
+                    <h3>Paris</h3>
+
+                    <p>
+                        Art · Food · Romance
+                    </p>
+
+                </div>
+
+                <div class="destination-price">
+                    From $1,299
+                </div>
+
+            </article>
+
+
+            <!-- Safari -->
+
+            <article
+                class="destination-card reveal"
+                data-category="adventure nature"
+                data-name="Kenya">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=85"
+                    alt="Kenya Safari">
+
+                <div class="destination-gradient"></div>
+
+                <div class="destination-info">
+
+                    <div class="destination-country">
+                        Kenya
+                    </div>
+
+                    <h3>Safari</h3>
+
+                    <p>
+                        Wildlife · Wilderness
+                    </p>
+
+                </div>
+
+                <div class="destination-price">
+                    From $1,599
+                </div>
+
+            </article>
+
+
+            <!-- Santorini -->
+
+            <article
+                class="destination-card reveal"
+                data-category="beach luxury"
+                data-name="Santorini">
+
+                <img
+                    src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1000&q=85"
+                    alt="Santorini">
+
+                <div class="destination-gradient"></div>
+
+                <div class="destination-info">
+
+                    <div class="destination-country">
+                        Greece
+                    </div>
+
+                    <h3>Santorini</h3>
+
+                    <p>
+                        Islands · Sunset · Luxury
+                    </p>
+
+                </div>
+
+                <div class="destination-price">
+                    From $1,449
+                </div>
+
+            </article>
+
+
+            <!-- Tokyo -->
+
+            <article
+                class="destination-card reveal"
+                data-category="city adventure"
+                data-name="Tokyo">
+
+                <img
+                    src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1000&q=85"
+                    alt="Tokyo">
+
+                <div class="destination-gradient"></div>
+
+                <div class="destination-info">
+
+                    <div class="destination-country">
+                        Japan
+                    </div>
+
+                    <h3>Tokyo</h3>
+
+                    <p>
+                        Culture · Food · Technology
+                    </p>
+
+                </div>
+
+                <div class="destination-price">
+                    From $1,199
+                </div>
+
+            </article>
+
+
+            <!-- Iceland -->
+
+            <article
+                class="destination-card reveal"
+                data-category="nature adventure"
+                data-name="Iceland">
+
+                <img
+                    src="https://images.unsplash.com/photo-1504829857797-ddff29c27927?auto=format&fit=crop&w=1000&q=85"
+                    alt="Iceland">
+
+                <div class="destination-gradient"></div>
+
+                <div class="destination-info">
+
+                    <div class="destination-country">
+                        Iceland
+                    </div>
+
+                    <h3>Iceland</h3>
+
+                    <p>
+                        Glaciers · Northern Lights
+                    </p>
+
+                </div>
+
+                <div class="destination-price">
+                    From $1,699
+                </div>
+
+            </article>
+
+
+            <!-- Dubai -->
+
+            <article
+                class="destination-card reveal"
+                data-category="city luxury"
+                data-name="Dubai">
+
+                <img
+                    src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1000&q=85"
+                    alt="Dubai">
+
+                <div class="destination-gradient"></div>
+
+                <div class="destination-info">
+
+                    <div class="destination-country">
+                        UAE
+                    </div>
+
+                    <h3>Dubai</h3>
+
+                    <p>
+                        Luxury · Architecture
+                    </p>
+
+                </div>
+
+                <div class="destination-price">
+                    From $1,099
+                </div>
+
+            </article>
+
+
+            <!-- Switzerland -->
+
+            <article
+                class="destination-card reveal"
+                data-category="nature luxury"
+                data-name="Switzerland">
+
+                <img
+                    src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1000&q=85"
+                    alt="Switzerland">
+
+                <div class="destination-gradient"></div>
+
+                <div class="destination-info">
+
+                    <div class="destination-country">
+                        Switzerland
+                    </div>
+
+                    <h3>Swiss Alps</h3>
+
+                    <p>
+                        Mountains · Lakes · Luxury
+                    </p>
+
+                </div>
+
+                <div class="destination-price">
+                    From $1,799
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPERIENCES
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div class="eyebrow">
+                The Wanderly difference
+            </div>
+
+            <h2>
+                Travel designed
+                around you.
+            </h2>
+
+        </div>
+
+
+        <div class="experience-grid">
+
+            <div class="experience-card reveal">
+
+                <div class="experience-icon">
+                    ◈
+                </div>
+
+                <h3>Curated stays</h3>
+
+                <p>
+                    Boutique hotels, private villas and memorable
+                    places selected by our travel specialists.
+                </p>
+
+            </div>
+
+
+            <div class="experience-card reveal">
+
+                <div class="experience-icon">
+                    ◇
+                </div>
+
+                <h3>Local experiences</h3>
+
+                <p>
+                    Meet locals, taste authentic food and explore
+                    places beyond the typical tourist trail.
+                </p>
+
+            </div>
+
+
+            <div class="experience-card reveal">
+
+                <div class="experience-icon">
+                    ✦
+                </div>
+
+                <h3>Personal support</h3>
+
+                <p>
+                    From your first idea to the final flight home,
+                    our team is here whenever you need us.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOURNEYS
+===================================================== -->
+
+<section class="section journeys" id="journeys">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div class="eyebrow">
+                Signature journeys
+            </div>
+
+            <h2>
+                Trips worth
+                talking about.
+            </h2>
+
+            <p>
+                Carefully crafted itineraries combining beautiful
+                stays, unforgettable experiences and plenty of
+                time to simply enjoy the moment.
+            </p>
+
+        </div>
+
+
+        <div class="journey-grid">
+
+
+            <article class="journey-card reveal">
+
+                <div class="journey-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1000&q=85"
+                        alt="Bali">
+
+                    <span class="journey-tag">
+                        BESTSELLER
+                    </span>
+
+                    <span class="journey-price">
+                        $899
+                    </span>
+
+                </div>
+
+                <div class="journey-body">
+
+                    <h3>Island Soul — Bali</h3>
+
+                    <p>
+                        Beaches, jungle temples and private
+                        wellness experiences.
+                    </p>
+
+                    <div class="journey-meta">
+                        <span>7 Days</span>
+                        <span>★★★★★</span>
+                        <span>Easy</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="journey-card reveal">
+
+                <div class="journey-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1000&q=85"
+                        alt="Tokyo">
+
+                    <span class="journey-tag">
+                        CULTURE
+                    </span>
+
+                    <span class="journey-price">
+                        $1,199
+                    </span>
+
+                </div>
+
+                <div class="journey-body">
+
+                    <h3>Tokyo After Dark</h3>
+
+                    <p>
+                        Hidden restaurants, neon streets and
+                        authentic Japanese culture.
+                    </p>
+
+                    <div class="journey-meta">
+                        <span>6 Days</span>
+                        <span>★★★★★</span>
+                        <span>Medium</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="journey-card reveal">
+
+                <div class="journey-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504829857797-ddff29c27927?auto=format&fit=crop&w=1000&q=85"
+                        alt="Iceland">
+
+                    <span class="journey-tag">
+                        ADVENTURE
+                    </span>
+
+                    <span class="journey-price">
+                        $1,699
+                    </span>
+
+                </div>
+
+                <div class="journey-body">
+
+                    <h3>Wild Iceland</h3>
+
+                    <p>
+                        Waterfalls, glaciers, black beaches and
+                        the Northern Lights.
+                    </p>
+
+                    <div class="journey-meta">
+                        <span>8 Days</span>
+                        <span>★★★★★</span>
+                        <span>Adventure</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="section" id="about">
+
+    <div class="container about-grid">
+
+        <div class="about-image reveal">
+
+            <img
+                src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=90"
+                alt="Travelers">
+
+            <div class="about-floating">
+
+                <strong>12K+</strong>
+
+                <span>
+                    journeys created
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-copy reveal">
+
+            <div class="eyebrow">
+                Travel differently
+            </div>
+
+            <h2>
+                Your world should
+                feel bigger.
+            </h2>
+
+            <p>
+                We believe the best journeys aren't about checking
+                destinations off a list. They're about the people
+                you meet, the stories you collect and the moments
+                you couldn't have planned.
+            </p>
+
+
+            <div class="check-list">
+
+                <div class="check-item">
+                    <span>✓</span>
+                    Handpicked hotels and villas
+                </div>
+
+                <div class="check-item">
+                    <span>✓</span>
+                    Local experts in every destination
+                </div>
+
+                <div class="check-item">
+                    <span>✓</span>
+                    Flexible itineraries
+                </div>
+
+                <div class="check-item">
+                    <span>✓</span>
+                    24/7 trip support
+                </div>
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                onclick="openBooking(event)">
+
+                Start planning
+                →
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div class="eyebrow">
+                Traveler stories
+            </div>
+
+            <h2>
+                Memories made
+                around the world.
+            </h2>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+
+            <article class="testimonial reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “Wanderly made our Bali trip feel completely
+                    effortless. Every hotel and experience was
+                    exactly our style.”
+                </p>
+
+                <div class="person">
+
+                    <img
+                        class="avatar"
+                        src="https://i.pravatar.cc/100?img=47"
+                        alt="Sarah">
+
+                    <div>
+                        <strong>Sarah Johnson</strong>
+                        <small>New York</small>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="testimonial reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “The team found places in Japan that we never
+                    would have discovered ourselves. It felt
+                    incredibly personal.”
+                </p>
+
+                <div class="person">
+
+                    <img
+                        class="avatar"
+                        src="https://i.pravatar.cc/100?img=12"
+                        alt="Daniel">
+
+                    <div>
+                        <strong>Daniel Lee</strong>
+                        <small>Singapore</small>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="testimonial reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “Beautiful design, beautiful trip and genuinely
+                    helpful support. We are already planning our
+                    next adventure.”
+                </p>
+
+                <div class="person">
+
+                    <img
+                        class="avatar"
+                        src="https://i.pravatar.cc/100?img=32"
+                        alt="Emily">
+
+                    <div>
+                        <strong>Emily Carter</strong>
+                        <small>London</small>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box reveal">
+
+            <div class="eyebrow">
+                Your next chapter
+            </div>
+
+            <h2>
+                Somewhere out there
+                is waiting for you.
+            </h2>
+
+            <p>
+                Tell us what you're dreaming about.
+                We'll take care of the rest.
+            </p>
+
+            <button
+                class="btn btn-primary"
+                onclick="openBooking(event)">
+
+                Build my journey
+                ✦
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="logo">
+                    <span class="logo-mark">✦</span>
+                    Wanderly
+                </div>
+
+                <p class="footer-about">
+                    Premium travel experiences for curious people
+                    who want to see the world differently.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <ul>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#journeys">Journeys</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Support</h4>
+
+                <ul>
+                    <li><a href="#">Travel guide</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <ul>
+                    <li>hello@wanderly.com</li>
+                    <li>+1 800 123 4567</li>
+                    <li>New York · London · Singapore</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Wanderly Travel Co.
+            </span>
+
+            <span>
+                Designed for modern explorers.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     BOOKING DASHBOARD
+===================================================== -->
+
+<div
+    class="modal"
+    id="bookingModal">
+
+    <div class="booking-dashboard">
+
+        <div class="booking-top">
+
+            <div>
+                <h2>Build your journey</h2>
+
+                <p>
+                    Create a personalized travel plan
+                </p>
+            </div>
+
+            <button
+                class="close-modal"
+                onclick="closeBooking()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="booking-body">
+
+
+            <!-- FORM -->
+
+            <form
+                class="booking-form"
+                id="bookingForm">
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            First name
+                        </label>
+
+                        <input
+                            id="firstName"
+                            type="text"
+                            placeholder="Alex"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="alex@example.com"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Destination
+                    </label>
+
+                    <select
+                        id="bookingDestination">
+
+                        <option value="Bali"
+                                data-price="899">
+                            Bali — $899
+                        </option>
+
+                        <option value="Paris"
+                                data-price="1299">
+                            Paris — $1,299
+                        </option>
+
+                        <option value="Kenya"
+                                data-price="1599">
+                            Kenya Safari — $1,599
+                        </option>
+
+                        <option value="Santorini"
+                                data-price="1449">
+                            Santorini — $1,449
+                        </option>
+
+                        <option value="Tokyo"
+                                data-price="1199">
+                            Tokyo — $1,199
+                        </option>
+
+                        <option value="Iceland"
+                                data-price="1699">
+                            Iceland — $1,699
+                        </option>
+
+                        <option value="Dubai"
+                                data-price="1099">
+                            Dubai — $1,099
+                        </option>
+
+                        <option value="Switzerland"
+                                data-price="1799">
+                            Swiss Alps — $1,799
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Check in
+                        </label>
+
+                        <input
+                            id="checkIn"
+                            type="date"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Check out
+                        </label>
+
+                        <input
+                            id="checkOut"
+                            type="date"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Travelers
+                        </label>
+
+                        <input
+                            id="bookingTravelers"
+                            type="number"
+                            value="2"
+                            min="1"
+                            max="20"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Travel style
+                        </label>
+
+                        <select id="bookingStyle">
+
+                            <option>
+                                Luxury
+                            </option>
+
+                            <option>
+                                Adventure
+                            </option>
+
+                            <option>
+                                Relaxation
+                            </option>
+
+                            <option>
+                                Culture
+                            </option>
+
+                            <option>
+                                Nature
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary"
+                    type="submit"
+                    style="width:100%; margin-top:8px;">
+
+                    Request my itinerary
+                    →
+
+                </button>
+
+            </form>
+
+
+            <!-- SUMMARY -->
+
+            <aside class="booking-summary">
+
+                <h3>
+                    Trip summary
+                </h3>
+
+
+                <div class="summary-image">
+
+                    <img
+                        id="summaryImage"
+                        src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80"
+                        alt="Destination">
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Destination
+                    </span>
+
+                    <strong id="summaryDestination">
+                        Bali
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Travelers
+                    </span>
+
+                    <strong id="summaryTravelers">
+                        2
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Style
+                    </span>
+
+                    <strong id="summaryStyle">
+                        Luxury
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Base trip
+                    </span>
+
+                    <strong id="summaryBase">
+                        $899
+                    </strong>
+
+                </div>
+
+
+                <div class="total">
+
+                    <span>
+                        Estimated total
+                    </span>
+
+                    <strong id="summaryTotal">
+                        $1,798
+                    </strong>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div class="toast" id="toast">
+
+    <strong id="toastTitle">
+        Done
+    </strong>
+
+    <span id="toastMessage">
+        Your request has been received.
+    </span>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================================================
+   HEADER SCROLL EFFECT
+========================================================= */
+
+const header =
+    document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 40) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+mobileMenu.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL ANIMATION
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+document.querySelectorAll(".reveal")
+.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+
+const counters =
+    document.querySelectorAll(".counter");
+
+let countersStarted = false;
+
+function startCounters() {
+
+    if (countersStarted) return;
+
+    countersStarted = true;
+
+    counters.forEach(counter => {
+
+        const target =
+            Number(counter.dataset.target);
+
+        let current = 0;
+
+        const increment =
+            Math.max(1, Math.ceil(target / 60));
+
+        const timer =
+            setInterval(() => {
+
+                current += increment;
+
+                if (current >= target) {
+
+                    current = target;
+
+                    clearInterval(timer);
+
+                }
+
+                counter.textContent =
+                    current + "+";
+
+            }, 25);
+
+    });
+
+}
+
+
+const counterObserver =
+    new IntersectionObserver(
+        entries => {
+
+            if (entries[0].isIntersecting) {
+
+                startCounters();
+
+                counterObserver.disconnect();
+
+            }
+
+        },
+        {
+            threshold: .5
+        }
+    );
+
+
+if (counters.length) {
+
+    counterObserver.observe(counters[0]);
+
+}
+
+
+/* =========================================================
+   DESTINATION FILTER
+========================================================= */
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+const destinationCards =
+    document.querySelectorAll(".destination-card");
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+        const filter =
+            button.dataset.filter;
+
+        destinationCards.forEach(card => {
+
+            const categories =
+                card.dataset.category.split(" ");
+
+            if (
+                filter === "all" ||
+                categories.includes(filter)
+            ) {
+
+                card.classList.remove("hidden");
+
+                setTimeout(() => {
+
+                    card.style.opacity = "1";
+                    card.style.transform = "translateY(0)";
+
+                }, 20);
+
+            } else {
+
+                card.style.opacity = "0";
+                card.style.transform = "translateY(15px)";
+
+                setTimeout(() => {
+
+                    card.classList.add("hidden");
+
+                }, 200);
+
+            }
+
+        });
+
+    });
+
+});
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+const tripSearch =
+    document.getElementById("tripSearch");
+
+tripSearch.addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const destination =
+        document
+        .getElementById("searchDestination")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const category =
+        document
+        .getElementById("searchCategory")
+        .value;
+
+
+    destinationCards.forEach(card => {
+
+        const name =
+            card.dataset.name.toLowerCase();
+
+        const categories =
+            card.dataset.category.split(" ");
+
+        const matchesName =
+            !destination ||
+            name.includes(destination);
+
+        const matchesCategory =
+            category === "all" ||
+            categories.includes(category);
+
+
+        if (matchesName && matchesCategory) {
+
+            card.classList.remove("hidden");
+
+            card.style.opacity = "1";
+
+            card.style.transform =
+                "translateY(0)";
+
+        } else {
+
+            card.classList.add("hidden");
+
+        }
+
+    });
+
+
+    document
+        .getElementById("destinations")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+
+    showToast(
+        "Search complete",
+        "Showing destinations matching your trip."
+    );
+
+});
+
+
+/* =========================================================
+   BOOKING MODAL
+========================================================= */
+
+const bookingModal =
+    document.getElementById("bookingModal");
+
+function openBooking(event) {
+
+    if (event) {
+        event.preventDefault();
+    }
+
+    bookingModal.classList.add("active");
+
+    document.body.classList.add("modal-open");
+
+}
+
+function closeBooking() {
+
+    bookingModal.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+bookingModal.addEventListener("click", event => {
+
+    if (event.target === bookingModal) {
+
+        closeBooking();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        closeBooking();
+
+    }
+
+});
+
+
+/* =========================================================
+   BOOKING CALCULATOR
+========================================================= */
+
+const bookingDestination =
+    document.getElementById("bookingDestination");
+
+const bookingTravelers =
+    document.getElementById("bookingTravelers");
+
+const bookingStyle =
+    document.getElementById("bookingStyle");
+
+const summaryDestination =
+    document.getElementById("summaryDestination");
+
+const summaryTravelers =
+    document.getElementById("summaryTravelers");
+
+const summaryStyle =
+    document.getElementById("summaryStyle");
+
+const summaryBase =
+    document.getElementById("summaryBase");
+
+const summaryTotal =
+    document.getElementById("summaryTotal");
+
+const summaryImage =
+    document.getElementById("summaryImage");
+
+
+const destinationImages = {
+
+    Bali:
+        "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80",
+
+    Paris:
+        "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80",
+
+    Kenya:
+        "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=80",
+
+    Santorini:
+        "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80",
+
+    Tokyo:
+        "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=900&q=80",
+
+    Iceland:
+        "https://images.unsplash.com/photo-1504829857797-ddff29c27927?auto=format&fit=crop&w=900&q=80",
+
+    Dubai:
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80",
+
+    Switzerland:
+        "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=900&q=80"
+
+};
+
+
+function updateBookingSummary() {
+
+    const option =
+        bookingDestination.options[
+            bookingDestination.selectedIndex
+        ];
+
+    const destination =
+        option.value;
+
+    const basePrice =
+        Number(option.dataset.price);
+
+    const travelers =
+        Number(bookingTravelers.value) || 1;
+
+    const style =
+        bookingStyle.value;
+
+
+    let multiplier = 1;
+
+    if (style === "Luxury") {
+        multiplier = 1.25;
+    }
+
+    if (style === "Adventure") {
+        multiplier = 1.10;
+    }
+
+    if (style === "Relaxation") {
+        multiplier = 1.15;
+    }
+
+    if (style === "Culture") {
+        multiplier = 1.05;
+    }
+
+
+    const total =
+        Math.round(
+            basePrice *
+            travelers *
+            multiplier
+        );
+
+
+    summaryDestination.textContent =
+        destination;
+
+    summaryTravelers.textContent =
+        travelers;
+
+    summaryStyle.textContent =
+        style;
+
+    summaryBase.textContent =
+        "$" + basePrice.toLocaleString();
+
+    summaryTotal.textContent =
+        "$" + total.toLocaleString();
+
+    summaryImage.src =
+        destinationImages[destination];
+
+}
+
+
+bookingDestination.addEventListener(
+    "change",
+    updateBookingSummary
+);
+
+bookingTravelers.addEventListener(
+    "input",
+    updateBookingSummary
+);
+
+bookingStyle.addEventListener(
+    "change",
+    updateBookingSummary
+);
+
+
+/* =========================================================
+   BOOKING SUBMIT
+========================================================= */
+
+const bookingForm =
+    document.getElementById("bookingForm");
+
+bookingForm.addEventListener(
+    "submit",
+    event => {
+
+        event.preventDefault();
+
+        const name =
+            document
+            .getElementById("firstName")
+            .value;
+
+        const destination =
+            bookingDestination.value;
+
+        closeBooking();
+
+        showToast(
+            "Journey request received",
+            `Thanks ${name}! Your ${destination} itinerary is ready for review.`
+        );
+
+        bookingForm.reset();
+
+        updateBookingSummary();
+
+    }
+);
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+const toast =
+    document.getElementById("toast");
+
+const toastTitle =
+    document.getElementById("toastTitle");
+
+const toastMessage =
+    document.getElementById("toastMessage");
+
+let toastTimer;
+
+
+function showToast(title, message) {
+
+    toastTitle.textContent =
+        title;
+
+    toastMessage.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 4000);
+
+}
+
+
+/* =========================================================
+   DESTINATION CARD -> BOOKING
+========================================================= */
+
+destinationCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const destination =
+            card.dataset.name;
+
+        for (
+            let i = 0;
+            i < bookingDestination.options.length;
+            i++
+        ) {
+
+            if (
+                bookingDestination.options[i].value ===
+                destination
+            ) {
+
+                bookingDestination.selectedIndex = i;
+
+                break;
+
+            }
+
+        }
+
+        updateBookingSummary();
+
+        openBooking();
+
+    });
+
+});
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateBookingSummary();
+
+</script>
+
+</body>
+</html>
+```

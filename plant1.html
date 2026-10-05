@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>PlantCare AI | Plant Disease Detection</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CONNECT CSS -->
+    <link rel="stylesheet" href="plant1.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        <span class="logo-leaf">🌿</span>
+        PlantCare<span>AI</span>
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#plants">Plants</a>
+
+        <a href="#detector">Detector</a>
+
+        <a href="#about">About</a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <button
+            class="theme-btn"
+            id="themeBtn">
+            🌙
+        </button>
+
+        <button
+            class="login-btn"
+            id="openLogin">
+            Login
+        </button>
+
+    </div>
+
+
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            ✨ SMART PLANT HEALTH
+        </div>
+
+
+        <h1>
+            Your Plants.
+            <br>
+
+            <span>Our Intelligence.</span>
+        </h1>
+
+
+        <p>
+            Detect plant diseases from a leaf image,
+            understand what's wrong, and discover
+            practical treatment recommendations.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#detector"
+                class="primary-btn">
+                🔬 Check My Plant
+            </a>
+
+            <a href="#plants"
+                class="secondary-btn">
+                Explore Plants ↓
+            </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>50+</strong>
+                <span>Plant Types</span>
+            </div>
+
+            <div>
+                <strong>95%</strong>
+                <span>Demo Accuracy</span>
+            </div>
+
+            <div>
+                <strong>24/7</strong>
+                <span>Plant Care</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="glow-circle"></div>
+
+        <div class="floating-card card-one">
+            🌱
+            <div>
+                <strong>Plant Health</strong>
+                <small>Looking great!</small>
+            </div>
+        </div>
+
+
+        <div class="plant-art">
+            🌿
+        </div>
+
+
+        <div class="floating-card card-two">
+            ❤️
+            <div>
+                <strong>Healthy</strong>
+                <small>96% confidence</small>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PLANT GALLERY ================= -->
+
+<section class="plants-section"
+    id="plants">
+
+    <div class="section-title">
+
+        <span>EXPLORE THE GARDEN</span>
+
+        <h2>
+            Plants deserve
+            <em>better care.</em>
+        </h2>
+
+        <p>
+            Explore some of the plants you can
+            monitor with PlantCare AI.
+        </p>
+
+    </div>
+
+
+    <div class="plant-grid">
+
+
+        <div class="plant-card">
+
+            <div class="plant-image tomato">
+                🍅
+            </div>
+
+            <div class="plant-info">
+
+                <span>VEGETABLE</span>
+
+                <h3>Tomato</h3>
+
+                <p>
+                    Early blight • Leaf spot
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="plant-card">
+
+            <div class="plant-image potato">
+                🥔
+            </div>
+
+            <div class="plant-info">
+
+                <span>VEGETABLE</span>
+
+                <h3>Potato</h3>
+
+                <p>
+                    Late blight • Fungal diseases
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="plant-card">
+
+            <div class="plant-image apple">
+                🍎
+            </div>
+
+            <div class="plant-info">
+
+                <span>FRUIT</span>
+
+                <h3>Apple</h3>
+
+                <p>
+                    Scab • Rust • Mildew
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="plant-card">
+
+            <div class="plant-image grape">
+                🍇
+            </div>
+
+            <div class="plant-info">
+
+                <span>FRUIT</span>
+
+                <h3>Grape</h3>
+
+                <p>
+                    Black rot • Mildew
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DETECTOR ================= -->
+
+<section class="detector-section"
+    id="detector">
+
+
+    <div class="section-title">
+
+        <span>AI PLANT DOCTOR</span>
+
+        <h2>
+            What's wrong with
+            <em>your plant?</em>
+        </h2>
+
+        <p>
+            Upload a clear image of a plant leaf
+            to begin the analysis.
+        </p>
+
+    </div>
+
+
+
+    <div class="detector-wrapper">
+
+
+        <!-- UPLOAD -->
+
+        <div class="upload-panel">
+
+            <div class="upload-top">
+
+                <span class="step-number">
+                    01
+                </span>
+
+                <div>
+
+                    <h3>
+                        Upload your leaf
+                    </h3>
+
+                    <p>
+                        JPG, PNG or WEBP
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                hidden>
+
+
+            <label
+                for="imageInput"
+                class="drop-zone"
+                id="dropZone">
+
+                <div
+                    class="upload-symbol">
+                    📸
+                </div>
+
+                <h3>
+                    Drop your image here
+                </h3>
+
+                <p>
+                    or click to browse
+                </p>
+
+                <span>
+                    Maximum size: 10 MB
+                </span>
+
+            </label>
+
+
+            <div class="preview-box"
+                id="previewBox">
+
+                <img
+                    id="imagePreview"
+                    alt="Uploaded plant">
+
+                <button
+                    id="removeImage"
+                    class="remove-image">
+                    ×
+                </button>
+
+            </div>
+
+
+            <button
+                id="detectBtn"
+                class="detect-button"
+                disabled>
+
+                <span>🔬</span>
+                Analyze Plant
+
+            </button>
+
+        </div>
+
+
+
+        <!-- RESULT -->
+
+        <div class="result-panel">
+
+            <div class="result-top">
+
+                <span class="step-number">
+                    02
+                </span>
+
+                <div>
+
+                    <h3>
+                        Analysis result
+                    </h3>
+
+                    <p>
+                        Your plant health report
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="resultContent"
+                class="result-content">
+
+                <div class="waiting-state">
+
+                    <div class="waiting-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Waiting for your plant
+                    </h3>
+
+                    <p>
+                        Upload an image to start
+                        your plant health analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-section"
+    id="about">
+
+    <div class="section-title">
+
+        <span>HOW IT WORKS</span>
+
+        <h2>
+            From leaf to
+            <em>insight.</em>
+        </h2>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-icon">
+                📷
+            </div>
+
+            <span>01</span>
+
+            <h3>
+                Capture
+            </h3>
+
+            <p>
+                Take a clear photo of the
+                affected plant leaf.
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-icon">
+                🧠
+            </div>
+
+            <span>02</span>
+
+            <h3>
+                Analyze
+            </h3>
+
+            <p>
+                Our detection interface
+                analyzes the visible symptoms.
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-icon">
+                💡
+            </div>
+
+            <span>03</span>
+
+            <h3>
+                Understand
+            </h3>
+
+            <p>
+                Learn about the possible
+                disease and its symptoms.
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-icon">
+                🌱
+            </div>
+
+            <span>04</span>
+
+            <h3>
+                Take Action
+            </h3>
+
+            <p>
+                Follow practical plant-care
+                recommendations.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta-section">
+
+    <div>
+
+        <span>
+            YOUR PLANT'S HEALTH MATTERS
+        </span>
+
+        <h2>
+            Give every leaf
+            a chance to thrive. 🌿
+        </h2>
+
+        <p>
+            Start your plant health journey today.
+        </p>
+
+        <a href="#detector"
+            class="primary-btn">
+            Start Checking →
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        🌿 PlantCareAI
+    </div>
+
+    <p>
+        Making plant health simple,
+        accessible and intelligent.
+    </p>
+
+    <div class="copyright">
+        © 2026 PlantCareAI
+    </div>
+
+</footer>
+
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div
+    class="modal-overlay"
+    id="loginModal">
+
+    <div class="login-modal">
+
+        <button
+            class="close-modal"
+            id="closeLogin">
+            ×
+        </button>
+
+
+        <div class="login-logo">
+            🌿
+        </div>
+
+
+        <h2>
+            Welcome back
+        </h2>
+
+        <p>
+            Sign in to your PlantCare account.
+        </p>
+
+
+        <form id="loginForm">
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                required>
+
+
+            <label>
+                Password
+            </label>
+
+            <div class="password-wrapper">
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    required>
+
+                <button
+                    type="button"
+                    id="showPassword">
+                    👁
+                </button>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-submit">
+
+                Login to PlantCare
+
+            </button>
+
+        </form>
+
+
+        <div
+            id="loginMessage"
+            class="login-message">
+        </div>
+
+
+        <p class="login-note">
+            Demo login — frontend only
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- CONNECT JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

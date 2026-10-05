@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plant Disease Detector</title>
+
+    <link rel="stylesheet" href="plant.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            🌿 PlantCare
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#detector">Detector</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="badge">🌱 Smart Plant Health</span>
+
+            <h1>
+                Detect Plant Diseases
+                <span>Instantly</span>
+            </h1>
+
+            <p>
+                Upload a photo of your plant leaf and get a quick
+                disease detection result with helpful treatment
+                recommendations.
+            </p>
+
+            <a href="#detector" class="primary-btn">
+                Start Detection →
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+            <div class="plant-icon">
+                🌿
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Detector Section -->
+    <section class="detector-section" id="detector">
+
+        <div class="section-heading">
+            <span>AI PLANT CHECK</span>
+            <h2>Plant Disease Detector</h2>
+            <p>
+                Upload a clear image of a plant leaf.
+            </p>
+        </div>
+
+
+        <div class="detector-container">
+
+            <!-- Upload Card -->
+            <div class="upload-card">
+
+                <div class="upload-icon">
+                    📷
+                </div>
+
+                <h3>Upload Plant Image</h3>
+
+                <p>
+                    JPG, JPEG or PNG
+                </p>
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/*"
+                    hidden
+                >
+
+                <label for="imageInput" class="upload-btn">
+                    Choose Image
+                </label>
+
+                <div class="preview-container">
+                    <img id="imagePreview" alt="Plant preview">
+                </div>
+
+                <button
+                    id="detectBtn"
+                    class="detect-btn"
+                    disabled
+                >
+                    🔍 Detect Disease
+                </button>
+
+            </div>
+
+
+            <!-- Result Card -->
+            <div class="result-card">
+
+                <div class="result-header">
+                    <span>DETECTION RESULT</span>
+                </div>
+
+                <div id="resultContent" class="result-content">
+
+                    <div class="result-placeholder">
+                        <div>🌱</div>
+
+                        <h3>No Result Yet</h3>
+
+                        <p>
+                            Upload a plant image and click
+                            "Detect Disease".
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features" id="about">
+
+        <div class="section-heading">
+            <span>FEATURES</span>
+            <h2>How It Works</h2>
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div>📷</div>
+                <h3>1. Upload</h3>
+                <p>
+                    Upload a clear photo of the affected plant leaf.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div>🔍</div>
+                <h3>2. Detect</h3>
+                <p>
+                    The system analyzes the uploaded image.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div>💡</div>
+                <h3>3. Get Advice</h3>
+                <p>
+                    Receive disease information and basic treatment
+                    suggestions.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>🌿 PlantCare</h3>
+
+        <p>
+            Plant health made simple.
+        </p>
+
+        <p class="copyright">
+            © 2026 PlantCare. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
